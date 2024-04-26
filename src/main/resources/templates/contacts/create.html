@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+	integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link type="image/png" sizes="16x16" rel="icon"
+	href="../images/favicon.png">
+<link rel="stylesheet" href="../styles/style.css" />
+<title>Phone Book | Create</title>
+</head>
+<body>
+	<header>
+		<a href="/"><h1>Phonebook Application</h1></a>
+		<p>Made by Chirag Chakraborty</p>
+	</header>
+	<main>
+		<div class="container">
+			<div class="formContainer">
+				<form method="POST" th:object="${contactDTO}">
+					<input type="text" name="name" placeholder="Name"
+						th:field="${contactDTO.name}" /> <small
+						th:if="${#fields.hasErrors('name')}" th:errorclass="errorMsg"
+						th:errors="${contactDTO.name}"></small> <input type="text"
+						name="phone" placeholder="Phone No."
+						th:field="${contactDTO.phone}" /> <small
+						th:if="${#fields.hasErrors('phone')}" th:errorclass="errorMsg"
+						th:errors="${contactDTO.phone}"></small> <input type="email"
+						name="email" placeholder="Email Address"
+						th:field="${contactDTO.email}" /> <small
+						th:if="${#fields.hasErrors('email')}" th:errorclass="errorMsg"
+						th:errors="${contactDTO.email}"></small>
+					<button type="submit">
+						Add Contact <i class="fa-solid fa-plus"></i>
+					</button>
+				</form>
+			</div>
+		</div>
+	</main>
+</body>
+</html>
